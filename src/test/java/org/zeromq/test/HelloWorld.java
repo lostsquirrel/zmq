@@ -19,7 +19,6 @@ public class HelloWorld {
         while (!Thread.currentThread().isInterrupted()) {
             // Wait for next request from the client
             byte[] request = responder.recv(0);
-            System.out.println("Received " + );
             log.debug(String.format("Received Message: %s", new String(request)));
             // Do some 'work'
             Thread.sleep(1000);
@@ -37,18 +36,18 @@ public class HelloWorld {
 		ZMQ.Context context = ZMQ.context(1);
 
         //  Socket to talk to server
-        System.out.println("Connecting to hello world server…");
+        log.debug("Connecting to hello world server…");
 
         ZMQ.Socket requester = context.socket(ZMQ.REQ);
         requester.connect("tcp://localhost:5555");
 
         for (int requestNbr = 0; requestNbr != 10; requestNbr++) {
             String request = "Hello";
-            System.out.println("Sending Hello " + requestNbr);
+            log.debug("Sending Hello " + requestNbr);
             requester.send(request.getBytes(), 0);
 
             byte[] reply = requester.recv(0);
-            System.out.println("Received " + new String(reply) + " " + requestNbr);
+            log.debug("Received " + new String(reply) + " " + requestNbr);
         }
         requester.close();
         context.term();
