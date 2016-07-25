@@ -278,7 +278,7 @@ public class ZMsg implements Iterable<ZFrame>, Deque<ZFrame> {
         return msg;
     }
 
-    @Override
+    
     public boolean equals(Object o) {
         if (this == o)
             return true;
@@ -301,7 +301,7 @@ public class ZMsg implements Iterable<ZFrame>, Deque<ZFrame> {
         return !(e1.hasNext() || e2.hasNext());
     }
 
-    @Override
+    
     public int hashCode() {
         if (frames == null || frames.size() == 0)
             return 0;
@@ -378,69 +378,69 @@ public class ZMsg implements Iterable<ZFrame>, Deque<ZFrame> {
     }
 
     // ********* Implement Iterable Interface *************** //
-    @Override
+    
     public Iterator<ZFrame> iterator() {
         // TODO Auto-generated method stub
         return frames.iterator();
     }
 
     // ********* Implement Deque Interface ****************** //
-    @Override
+    
     public boolean addAll(Collection<? extends ZFrame> arg0) {
         return frames.addAll(arg0);
     }
 
-    @Override
+    
     public void clear() {
         frames.clear();
 
     }
 
-    @Override
+    
     public boolean containsAll(Collection<?> arg0) {
         return frames.containsAll(arg0);
     }
 
-    @Override
+    
     public boolean isEmpty() {
         return frames.isEmpty();
     }
 
-    @Override
+    
     public boolean removeAll(Collection<?> arg0) {
         return frames.removeAll(arg0);
     }
 
-    @Override
+    
     public boolean retainAll(Collection<?> arg0) {
         return frames.retainAll(arg0);
     }
 
-    @Override
+    
     public Object[] toArray() {
         return frames.toArray();
     }
 
-    @Override
+    
     public <T> T[] toArray(T[] arg0) {
         return frames.toArray(arg0);
     }
 
-    @Override
+    
     public boolean add(ZFrame e) {
         if (frames == null)
             frames = new ArrayDeque<ZFrame>();
         return frames.add(e);
     }
 
-    @Override
+    
     public void addFirst(ZFrame e) {
         if (frames == null)
             frames = new ArrayDeque<ZFrame>();
         frames.addFirst(e);
     }
 
-    @Override
+    
     public void addLast(ZFrame e) {
         if (frames == null)
             frames = new ArrayDeque<ZFrame>();
@@ -448,22 +448,22 @@ public class ZMsg implements Iterable<ZFrame>, Deque<ZFrame> {
 
     }
 
-    @Override
+    
     public boolean contains(Object o) {
         return frames.contains(o);
     }
 
-    @Override
+    
     public Iterator<ZFrame> descendingIterator() {
         return frames.descendingIterator();
     }
 
-    @Override
+    
     public ZFrame element() {
         return frames.element();
     }
 
-    @Override
+    
     public ZFrame getFirst() {
         try {
             return frames.getFirst();
@@ -472,7 +472,7 @@ public class ZMsg implements Iterable<ZFrame>, Deque<ZFrame> {
         }
     }
 
-    @Override
+    
     public ZFrame getLast() {
         try {
             return frames.getLast();
@@ -481,33 +481,33 @@ public class ZMsg implements Iterable<ZFrame>, Deque<ZFrame> {
         }
     }
 
-    @Override
+    
     public boolean offer(ZFrame e) {
         if (frames == null)
             frames = new ArrayDeque<ZFrame>();
         return frames.offer(e);
     }
 
-    @Override
+    
     public boolean offerFirst(ZFrame e) {
         if (frames == null)
             frames = new ArrayDeque<ZFrame>();
         return frames.offerFirst(e);
     }
 
-    @Override
+    
     public boolean offerLast(ZFrame e) {
         if (frames == null)
             frames = new ArrayDeque<ZFrame>();
         return frames.offerLast(e);
     }
 
-    @Override
+    
     public ZFrame peek() {
         return frames.peek();
     }
 
-    @Override
+    
     public ZFrame peekFirst() {
         try {
             return frames.peekFirst();
@@ -516,7 +516,7 @@ public class ZMsg implements Iterable<ZFrame>, Deque<ZFrame> {
         }
     }
 
-    @Override
+    
     public ZFrame peekLast() {
         try {
             return frames.peekLast();
@@ -525,22 +525,22 @@ public class ZMsg implements Iterable<ZFrame>, Deque<ZFrame> {
         }
     }
 
-    @Override
+    
     public ZFrame poll() {
         return frames.poll();
     }
 
-    @Override
+    
     public ZFrame pollFirst() {
         return frames.pollFirst();
     }
 
-    @Override
+    
     public ZFrame pollLast() {
         return frames.pollLast();
     }
 
-    @Override
+    
     public ZFrame pop() {
         if (frames == null)
             frames = new ArrayDeque<ZFrame>();
@@ -564,24 +564,24 @@ public class ZMsg implements Iterable<ZFrame>, Deque<ZFrame> {
         return frame.toString();
     }
 
-    @Override
+    
     public void push(ZFrame e) {
         if (frames == null)
             frames = new ArrayDeque<ZFrame>();
         frames.push(e);
     }
 
-    @Override
+    
     public ZFrame remove() {
         return frames.remove();
     }
 
-    @Override
+    
     public boolean remove(Object o) {
         return frames.remove(o);
     }
 
-    @Override
+    
     public ZFrame removeFirst() {
         try {
             return frames.removeFirst();
@@ -590,12 +590,12 @@ public class ZMsg implements Iterable<ZFrame>, Deque<ZFrame> {
         }
     }
 
-    @Override
+    
     public boolean removeFirstOccurrence(Object o) {
         return frames.removeFirstOccurrence(o);
     }
 
-    @Override
+    
     public ZFrame removeLast() {
         try {
             return frames.removeLast();
@@ -604,12 +604,12 @@ public class ZMsg implements Iterable<ZFrame>, Deque<ZFrame> {
         }
     }
 
-    @Override
+    
     public boolean removeLastOccurrence(Object o) {
         return frames.removeLastOccurrence(o);
     }
 
-    @Override
+    
     public int size() {
         return frames.size();
     }

@@ -36,14 +36,14 @@ public class ZDispatcherTest {
 
         ZDispatcher.ZSender outSender = new ZDispatcher.ZSender();
         dispatcher.registerHandler(out, new ZDispatcher.ZMessageHandler() {
-            @Override
+            
             public void handleMessage(ZDispatcher.ZSender sender, ZMsg msg) {
 
             }
         }, outSender);
 
         dispatcher.registerHandler(logger, new ZDispatcher.ZMessageHandler() {
-            @Override
+            
             public void handleMessage(ZDispatcher.ZSender sender, ZMsg msg) {
 
                 assertEquals(mesgTxt, msg.poll().toString());
@@ -82,7 +82,7 @@ public class ZDispatcherTest {
         ZDispatcher.ZSender senderOne = new ZDispatcher.ZSender();
         dispatcher.registerHandler(socketOne, new ZDispatcher.ZMessageHandler() {
 
-            @Override
+            
             public void handleMessage(ZDispatcher.ZSender sender, ZMsg msg) {
                 try {
                     if (guardLock1.tryLock()) {
@@ -101,7 +101,7 @@ public class ZDispatcherTest {
         ZDispatcher.ZSender senderTwo = new ZDispatcher.ZSender();
         dispatcher.registerHandler(socketTwo, new ZDispatcher.ZMessageHandler() {
 
-            @Override
+            
             public void handleMessage(ZDispatcher.ZSender sender, ZMsg msg) {
                 try {
                     if (guardLock2.tryLock()) {
@@ -148,7 +148,7 @@ public class ZDispatcherTest {
 
         final ZDispatcher dispatcher = new ZDispatcher();
         final CyclicBarrier handlersBarrier = new CyclicBarrier(2, new Runnable() {
-            @Override
+            
             public void run() {
                 if (latch.getCount() == 0) {
                     dispatcher.shutdown();
@@ -158,7 +158,7 @@ public class ZDispatcherTest {
 
         ZDispatcher.ZSender senderOne = new ZDispatcher.ZSender();
         dispatcher.registerHandler(socketOne, new ZDispatcher.ZMessageHandler() {
-            @Override
+            
             public void handleMessage(ZDispatcher.ZSender sender, ZMsg msg) {
                 latch.countDown();
                 try {
@@ -170,7 +170,7 @@ public class ZDispatcherTest {
         ZDispatcher.ZSender senderTwo = new ZDispatcher.ZSender();
         dispatcher.registerHandler(socketTwo, new ZDispatcher.ZMessageHandler() {
 
-            @Override
+            
             public void handleMessage(ZDispatcher.ZSender sender, ZMsg msg) {
                 sender.send(msg);
                 shutdownIssueDetected.set(true);
@@ -208,7 +208,7 @@ public class ZDispatcherTest {
         out.connect("inproc://zmsg.test");
 
         dispatcher.registerHandler(in, new ZDispatcher.ZMessageHandler() {
-            @Override
+            
             public void handleMessage(ZDispatcher.ZSender sender, ZMsg msg) {
                 latch.countDown();
             }

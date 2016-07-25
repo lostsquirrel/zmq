@@ -190,7 +190,6 @@ public class ZContext implements Closeable {
         return sockets;
     }
 
-    @Override
     public void close() {
         destroy();
     }

@@ -32,7 +32,6 @@ public class ZMQForwarder implements Runnable {
     /**
      * Forwarding messages.
      */
-    @Override
     public void run() {
         byte[] msg = null;
         boolean more = true;

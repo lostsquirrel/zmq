@@ -36,7 +36,6 @@ public class ZMQQueue implements Runnable, Closeable {
     /**
      * Queuing of requests and replies.
      */
-    @Override
     public void run() {
         byte[] msg = null;
         boolean more = true;
@@ -88,7 +87,6 @@ public class ZMQQueue implements Runnable, Closeable {
     /**
      * Unregisters input and output sockets.
      */
-    @Override
     public void close() throws IOException {
         poller.unregister(this.inSocket);
         poller.unregister(this.outSocket);

@@ -263,7 +263,6 @@ public class ZAuth {
             }
         }
 
-        @Override
         public void run(Object[] args, ZContext ctx, Socket pipe) {
             this.pipe = pipe;
 

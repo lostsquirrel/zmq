@@ -10,7 +10,7 @@ public class ZThreadTest {
     public void testDetached() {
         ZThread.IDetachedRunnable detached = new ZThread.IDetachedRunnable() {
 
-            @Override
+            
             public void run(Object[] args) {
                 ZContext ctx = new ZContext();
                 assert (ctx != null);
@@ -30,7 +30,7 @@ public class ZThreadTest {
 
         ZThread.IAttachedRunnable attached = new ZThread.IAttachedRunnable() {
 
-            @Override
+            
             public void run(Object[] args, ZContext ctx, Socket pipe) {
                 // Create a socket to check it'll be automatically deleted
                 ctx.createSocket(ZMQ.PUSH);
