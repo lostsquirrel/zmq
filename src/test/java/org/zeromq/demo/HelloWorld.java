@@ -1,4 +1,4 @@
-package org.zeromq.test;
+package org.zeromq.demo;
 
 import org.junit.Test;
 import org.slf4j.Logger;

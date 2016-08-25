@@ -1,4 +1,4 @@
-package org.zeromq.test;
+package org.zeromq.demo;
 
 import static org.junit.Assert.*;
 
