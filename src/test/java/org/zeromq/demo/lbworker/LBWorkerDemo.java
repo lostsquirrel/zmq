@@ -1,5 +1,6 @@
 package org.zeromq.demo.lbworker;
 
+import java.nio.charset.Charset;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -61,22 +62,22 @@ public class LBWorkerDemo {
 			if (items.pollin(0)) {
 
 				// Queue worker address for LRU routing
-				workerQueue.add(backend.recvStr());
+				workerQueue.add(backend.recvStr(Charset.defaultCharset()));
 
 				// Second frame is empty
-				String empty = backend.recvStr();
+				String empty = backend.recvStr(Charset.defaultCharset());
 				assert (empty.length() == 0);
 
 				// Third frame is READY or else a client reply address
-				String clientAddr = backend.recvStr();
+				String clientAddr = backend.recvStr(Charset.defaultCharset());
 
 				// If client reply, send rest back to frontend
 				if (!clientAddr.equals("READY")) {
 
-					empty = backend.recvStr();
+					empty = backend.recvStr(Charset.defaultCharset());
 					assert (empty.length() == 0);
 
-					String reply = backend.recvStr();
+					String reply = backend.recvStr(Charset.defaultCharset());
 					frontend.sendMore(clientAddr);
 					frontend.sendMore("");
 					frontend.send(reply);
@@ -90,12 +91,12 @@ public class LBWorkerDemo {
 			if (items.pollin(1)) {
 				// Now get next client request, route to LRU worker
 				// Client request is [address][empty][request]
-				String clientAddr = frontend.recvStr();
+				String clientAddr = frontend.recvStr(Charset.defaultCharset());
 
-				String empty = frontend.recvStr();
+				String empty = frontend.recvStr(Charset.defaultCharset());
 				assert (empty.length() == 0);
 
-				String request = frontend.recvStr();
+				String request = frontend.recvStr(Charset.defaultCharset());
 
 				String workerAddr = workerQueue.poll();
 

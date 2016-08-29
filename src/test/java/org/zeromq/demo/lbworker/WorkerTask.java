@@ -1,5 +1,7 @@
 package org.zeromq.demo.lbworker;
 
+import java.nio.charset.Charset;
+
 import org.zeromq.ZMQ;
 import org.zeromq.ZMQ.Context;
 import org.zeromq.ZMQ.Socket;
@@ -18,12 +20,12 @@ public class WorkerTask extends Thread {
 		worker.send("READY");
 
 		while (!Thread.currentThread().isInterrupted()) {
-			String address = worker.recvStr();
-			String empty = worker.recvStr();
+			String address = worker.recvStr(Charset.defaultCharset());
+			String empty = worker.recvStr(Charset.defaultCharset());
 			assert (empty.length() == 0);
 
 			// Get request, send reply
-			String request = worker.recvStr();
+			String request = worker.recvStr(Charset.defaultCharset());
 			System.out.println("Worker: " + request);
 
 			worker.sendMore(address);

@@ -1,7 +1,5 @@
 package org.zeromq.demo;
 
-import static org.junit.Assert.*;
-
 import java.nio.charset.Charset;
 import java.util.Random;
 import java.util.StringTokenizer;
